@@ -1,0 +1,16 @@
+<h1 class="text-center">Articles</h1>
+<h2><%= @article.title %></h2>
+<%# <%= link_to "Edit", edit_article_path%>
+<%# <%= link_to "Delete",article_path(article), data: %>
+<%# <br>
+<%# <a data-confirm="Are you sure to delete?" rel="nofollow" data-method="delete" href="/articles/<%=@article.id%>
+<%# <br> %>
+<%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe,
+            article_path(@article),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete?"} %>
+
+<%= link_to edit_article_path(@article.id) do %>
+    <i class="fa fa-pencil"></i>
+<% end %>
+
+<p><%= @article.content %></p>
